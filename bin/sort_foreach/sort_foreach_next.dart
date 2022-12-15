@@ -12,8 +12,8 @@ void main(List<String> args) {
   ];
 
   persons.sort((p1, p2) {
-    if (p1.role.compareTo(p2.role) != 0) {
-      return p1.role.compareTo((p2.role));
+    if (p1.roleWeight - p2.roleWeight != 0) {
+      return p1.roleWeight - p2.roleWeight;
     } else {
       return p1.age.compareTo(p2.age);
     }
@@ -29,4 +29,17 @@ class Person {
   final int age;
 
   Person(this.role, this.age);
+
+  int get roleWeight {
+    switch (role) {
+      case 'Merhcant':
+        return 1;
+        break;
+      case 'Administrator':
+        return 2;
+        break;
+      default:
+        return 3;
+    }
+  }
 }
